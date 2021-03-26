@@ -20,7 +20,7 @@
 if(isset($_POST["sbmt"]))
 {
 	$cn=makeconnection();
-	$s="insert into hotelreservation(name,email,phone_number,RoomNumber,leavingDate,entrydate,HotelRef) values('" . $_POST["t1"] ."','" . $_POST["t2"] ."','" . $_POST["t3"] ."','" . $_POST["t4"] ."','" . $_POST["t5"] ."','" . $_POST["t6"] ."','" . $_REQUEST["HotelNumber"] ."')";	
+	$s="insert into hotelreservation(name,email,phone_number,RoomNumber,leavingDate,entrydate,HotelRef) values('" . $_POST["s1"] ."','" . $_POST["s2"] ."','" . $_POST["s3"] ."','" . $_POST["s4"] ."','" . $_POST["s5"] ."','" . $_POST["s6"] ."','" . $_REQUEST["HotelNumber"] ."')";	
 	
 	
 		mysqli_query($cn,$s);
@@ -81,12 +81,12 @@ mysqli_close($cn);
  
 <form method="post" enctype="multipart/form-data">
 <tr><td colspan="3" class="middletext">Hotel Number:&nbsp;&nbsp;&nbsp;<?php echo $data[0];?></td></tr>
-<tr><td class="lefttxt">Name:</td><td><input type="text" name="t1" required pattern="[a-zA-z1 _]{3,50}" title"Please Enter Only Characters and numbers between 1 to 50 for Name"/></td></tr><br/>
-<tr><td class="lefttxt">Email:</td><td><input type="email" name="t2" required /></td><td><br/>
-<tr><td class="lefttxt">Mobile No.</td><td><input type="text" name="t3" required pattern="[0-9]{10,12}" title"Please Enter Only numbers between 10 to 12 for Mobile No"/></td></tr><br/>
-<tr><td class="lefttxt">Room Number</td><td><input type="number" name="t4" required pattern="[1 _]{1,200}" title"Please Enter Only numbers between 1 to 200 for No.Of Adults"/></td><td><br/>
-<tr><td class="lefttxt">Leaving date:</td><td><input type="date" name="t5"  title"Please Enter date"/></td><td><br/>
-<tr><td class="lefttxt">Entry date:</td><td><input type="date" name="t6"  title"Please Enter date"/></td><td><br/>
+<tr><td class="lefttxt">Name:</td><td><input type="text" name="s1" required pattern="[a-zA-z1 _]{3,50}" title"Please Enter Only Characters and numbers between 1 to 50 for Name"/></td></tr><br/>
+<tr><td class="lefttxt">Email:</td><td><input type="email" name="s2" required /></td><td><br/>
+<tr><td class="lefttxt">Mobile No.</td><td><input type="text" name="s3" required pattern="[0-9]{10,12}" title"Please Enter Only numbers between 10 to 12 for Mobile No"/></td></tr><br/>
+<tr><td class="lefttxt">Room Number</td><td><input type="number" name="s4" required pattern="[1 _]{1,200}" title"Please Enter Only numbers between 1 to 200 for No.Of Adults"/></td><td><br/>
+<tr><td class="lefttxt">Leaving date:</td><td><input type="date" name="s5"  title"Please Enter date"/></td><td><br/>
+<tr><td class="lefttxt">Entry date:</td><td><input type="date" name="s6"  title"Please Enter date"/></td><td><br/>
 <tr><td>&nbsp;</td><td ><input type="submit" value="Submit" name="sbmt" /></td></tr>
 
 </form></td></tr>

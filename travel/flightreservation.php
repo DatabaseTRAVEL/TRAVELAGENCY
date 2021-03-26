@@ -15,18 +15,20 @@
 <!--/js-->
 
 <body>
-<?php include('function.php'); ?>
+<?php include('function.php');
+ ?>
 <?php
 if(isset($_POST["sbmt"]))
 {
 	$cn=makeconnection();
-	$s="insert into flightreservation(name,phone_number,email,seat,FlightRef) values('" . $_POST["t1"] ."','" . $_POST["t2"] ."','" . $_POST["t3"] ."','" . $_POST["t4"] ."','" . $_REQUEST["FlightNumber"] ."')";	
+	$s="insert into flightreservation(FlightRef,name,phone_number,email,seat) values( '" . $_REQUEST["FlightNumber"] ."','" . $_POST["r1"] ."','" . $_POST["r2"] ."','" . $_POST["r3"] ."','" . $_POST["r4"] ."')";	
 	
 	
 		mysqli_query($cn,$s);
 	
 	echo "<script>alert('Record Save');</script>";
 }
+
 ?>
 
 <?php include('top.php'); ?>
@@ -36,7 +38,7 @@ if(isset($_POST["sbmt"]))
 <!--/sticky-->
 <div style="height:50px"></div>
 <div style="width:1000px; margin:auto"  >
-
+<!--/-->
 <div style="width:200px; font-size:18px; color:#09F; float:left">
 
 <table cellpadding="0" cellspacing="0" width="1000px">
@@ -81,10 +83,14 @@ mysqli_close($cn);
  
 <form method="post" enctype="multipart/form-data">
 <tr><td colspan="3" class="middletext">Flight Number :&nbsp;&nbsp;&nbsp;<?php echo $data[0];?></td></tr>
-<tr><td class="lefttxt">Name:</td><td><input type="text" name="t1" required pattern="[a-zA-z1 _]{3,50}" title"Please Enter Only Characters and numbers between 1 to 50 for Name"/></td></tr><br/>
-<tr><td class="lefttxt">Mobile No.</td><td><input type="text" name="t2" required pattern="[0-9]{10,12}" title"Please Enter Only numbers between 10 to 12 for Mobile No"/></td></tr><br/>
-<tr><td class="lefttxt">Email:</td><td><input type="email" name="t3" required /></td><td><br/>
-<tr><td class="lefttxt">Seat No.</td><td><input type="text" name="t4" required pattern="[0-9]{1,2}" title"Please Enter Only numbers between 1 to 60 for Mobile No"/></td></tr><br/>
+<tr><td class="lefttxt">Name:</td><td><input type="text" name="r1" required pattern="[a-zA-z1 _]{3,50}" title"Please Enter Only Characters and numbers between 1 to 50 for Name"/></td></tr><br/>
+
+<tr><td class="lefttxt">Mobile No.</td><td><input type="text" name="r2" required pattern="[0-9]{10,12}" title"Please Enter Only numbers between 10 to 12 for Mobile No"/></td></tr><br/>
+
+<tr><td class="lefttxt">Email:</td><td><input type="email" name="r3" required /></td><td><br/>
+
+<tr><td class="lefttxt">Seat No.</td><td><input type="text" name="r4" required pattern="[0-9]{1,2}" title"Please Enter Only numbers between 1 to 60 for Mobile No"/></td></tr><br/>
+
 <tr><td>&nbsp;</td><td ><input type="submit" value="Submit" name="sbmt" /></td></tr>
 
 </form></td></tr>
